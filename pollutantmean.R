@@ -30,6 +30,6 @@ pollutantmean <- function(directory, pollutant, id = 1:332) {
     datas <- c(datas, need_data)
   }
   
-  mean(datas)
+  round(mean(datas), digits = 3)
   
 }
