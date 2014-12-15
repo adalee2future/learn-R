@@ -1,16 +1,17 @@
-pollutantmean <- function(directory, pollutant, id = 1:332) {
+complete <- function(directory, id = 1:332) {
   ## 'directory' is a character vector of length 1 indicating
   ## the location of the CSV files
-  
-  ## 'pollutant' is a character vector of length 1 indicating
-  ## the name of the pollutant for which we will calculate the
-  ## mean; either "sulfate" or "nitrate".
   
   ## 'id' is an integer vector indicating the monitor ID numbers
   ## to be used
   
-  ## Return the mean of the pollutant across all monitors list
-  ## in the 'id' vector (ignoring NA values)
+  ## Return a data frame of the form:
+  ## id nobs
+  ## 1  117
+  ## 2  1041
+  ## ...
+  ## where 'id' is the monitor ID number and 'nobs' is the
+  ## number of complete cases
   
   ## translate num to filename
   num2file <- function(num){
@@ -21,15 +22,15 @@ pollutantmean <- function(directory, pollutant, id = 1:332) {
     file
   }
   
-  datas <-c()
+  nobs <- c()
   
   for (num in id){
     file <- num2file(num)
     read_data <- read.csv(file)
-    need_data <- read_data[pollutant][!is.na(read_data[pollutant])]
-    datas <- c(datas, need_data)
+    need_data <- (!is.na(read_data$sulfate)) & (!is.na(read_data$nitrate))
+    nobs <- c(nobs, sum(need_data))
+    
   }
   
-  mean(datas)
-  
+  data.frame(id = id, nobs = nobs)
 }
