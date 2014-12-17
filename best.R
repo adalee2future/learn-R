@@ -31,7 +31,7 @@ best <- function(state, outcome){
   if (outcome == "pneumonia") {
       death_rate <- outcome_data$Hospital.30.Day.Death..Mortality..Rates.from.Pneumonia
   }
-  
+  ## change data type from character to numeric
   death_rate <- as.numeric(death_rate)
     
   
