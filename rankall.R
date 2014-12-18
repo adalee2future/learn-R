@@ -34,6 +34,7 @@ rankall <- function(outcome, num = "best") {
     states <- sort(states)
     rank_hospitals <- c()
     
+    current_num <- num
     if (num == "best") current_num <- 1
     
     for (state in states){
