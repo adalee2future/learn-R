@@ -15,7 +15,6 @@ rankall <- function(outcome, num = "best") {
     ## get date rate
     if (outcome == "heart attack"){
       death_rate <- outcome_data$Hospital.30.Day.Death..Mortality..Rates.from.Heart.Attack
-      
     }
     
     if (outcome == "heart failure") {
@@ -34,25 +33,27 @@ rankall <- function(outcome, num = "best") {
     states <- sort(states)
     rank_hospitals <- c()
     
+	# set current num
     current_num <- num
     if (num == "best") current_num <- 1
     
+	## loop through states
     for (state in states){
       
       need_index <- (valid_states == state) & (!is.na(death_rate))
       sorted_rate <- sort(death_rate[need_index])
       
-      if (num == "worst") current_num <- length(sorted_rate)
+	  # modify current num if num is "worst"
+      if (num == "worst") current_num <- length(sorted_rate
+	  
       res_index <- need_index & death_rate == sorted_rate[current_num]
       
       n <- sum(sorted_rate < sorted_rate[current_num])
       res <- sort(hospitals[res_index])
       rank_hospitals <- c(rank_hospitals, res[current_num - n])
       
-    }
-    
+    }  
   
     data.frame(hospital = rank_hospitals, state = states)
-  
-  
+   
 }
