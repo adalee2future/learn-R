@@ -1,3 +1,4 @@
+path2csv <- "E:/Program Files/R/R-3.1.1/library/swirl/Courses/Getting_and_Cleaning_Data/Manipulating_Data_with_dplyr/2014-07-08.csv"
 mydf <- read.csv(path2csv, stringsAsFactors=FALSE)
 dim(mydf)
 
