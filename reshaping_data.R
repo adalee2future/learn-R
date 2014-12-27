@@ -32,3 +32,8 @@ sapply(spIns,sum)
 
 ## another way - plyr package
 ddply(InsectSprays,.(spray),summarize,sum=sum(count))
+
+## creating a new variable
+spraySums <- ddply(InsectSprays,.(spray),summarize,sum=ave(count,FUN=sum))
+dim(spraySums)
+head(spraySums)
