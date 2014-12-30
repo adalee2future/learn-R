@@ -11,4 +11,10 @@ pdf(file = "myplot.pdf")  ## open PDF device; create 'myplot.pdf' in my working 
 with(faithful, plot(eruptions, waiting))
 title(main = "Old Faithful Geyser data")  ## annotate plot; still nothing in screen
 dev.off()  ## Close the PDF file device
-## Now you can view the fiel 'myplot.pdf' on your computer
+## Now you can view the file 'myplot.pdf' on your computer
+
+## copying plots
+with(faithful, plot(eruptions, waiting))
+title(main = "Old Faithful Geyser data")
+dev.copy(png, file = "geyserplot.png")
+dev.off()
