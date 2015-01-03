@@ -36,3 +36,18 @@ qplot(log(pm25), log(eno), data = maacs, shape = mopos)
 qplot(log(pm25), log(eno), data = maacs, color = mopos)
 qplot(log(pm25), log(eno), data = maacs, color = mopos, geom = c("point", "smooth"), method = "lm")
 qplot(log(pm25), log(eno), data = maacs, color = mopos, geom = c("point", "smooth"), method = "lm", facets = .~mopos)
+
+g <- ggplot(maacs, aes(log(pm25), NocturnalSympt))
+p <- g + geom_point()
+print(p)
+
+## axis limits
+testdat <- data.frame(x = 1:100, y = rnorm(100))
+testdat[50, 2] <- 100
+plot(testdat$x, testdat$y, type = "l", ylim = c(-3, 3))
+
+g <- ggplot(testdat, aes(x = x, y = y))
+g + geom_line()
+
+g + geom_line() + ylim(-3, 3)
+g + geom_line() + coord_cartesian(ylim = c(-3, 3))
