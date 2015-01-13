@@ -1,0 +1,18 @@
+---
+title: "myFirstKnitrDoc"
+author: "Ada Lee"
+date: "January 13, 2015"
+output: word_document
+---
+
+My first knitr Document
+==================================
+
+This is some test (i.e. a "text chunk").
+
+Here is a code chunk
+```{r}
+set.seed(1)
+x <- rnorm(100)
+mean(x)
+```
