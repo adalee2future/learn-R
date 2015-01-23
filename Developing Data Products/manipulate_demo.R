@@ -1,4 +1,5 @@
 library(manipulate)
+library(UsingR)
 myHist <- function(mu){
         hist(galton$child, col="blue", breaks=100)
         lines(c(mu,mu), c(0,150), col="red", lwd=5)
