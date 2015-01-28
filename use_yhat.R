@@ -47,8 +47,8 @@ model.predict <- function(df) {
 }
 
 yhat.config <- c(username = "lill_10@lzu.edu.cn",
-                 apikey = "6ef041d922786fc4b47bb759e4ca37ae",
-                 env = "http://sandbox.yhathq.com/")
+                 apikey = "XXX",
+                 env = "http://sandbox.yhathq.com/")  ## not show real apikey here
 
 yhat.deploy("pollutant")
 
