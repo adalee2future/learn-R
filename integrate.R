@@ -1,3 +1,4 @@
+# probability density function
 mypdf <- function(x) {x / 2}
 
 # use the R function integrate to integrate mypdf with 
